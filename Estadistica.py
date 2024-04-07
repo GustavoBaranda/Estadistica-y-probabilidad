@@ -1,4 +1,5 @@
 import random
+import matplotlib.pyplot as plt
  
 def cumples(k):
    return [random.randint(1, 365) for _ in range(k)]
@@ -34,3 +35,11 @@ muestras = [proporcion_coincidencia(k, N) for k in range(1, 51)]
 for k, probabilidad in enumerate(muestras, 1):
     print(f"Para k={k}, la probabilidad estimada es: {probabilidad}")
 # Los resultados se imprimen en forma de un bucle for, donde se muestra la probabilidad estimada para cada valor de k. Cada resultado está formateado con f-strings, mostrando el valor de k y la probabilidad estimada correspondiente.
+
+
+plt.plot(range(1, 51), muestras, marker='o', linestyle='-')
+plt.xlabel('Número de personas (k)')
+plt.ylabel('Probabilidad estimada')
+plt.title('Probabilidad de coincidencia de cumpleaños')
+plt.grid(True)
+plt.show()
