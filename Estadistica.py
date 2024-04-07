@@ -28,6 +28,7 @@ def proporcion_coincidencia(k, N):
 # La función devuelve un valot float como una estimación de la probabilidad de coincidencia.
 
 N = 1000
+random.seed(7)
 muestras = [proporcion_coincidencia(k, N) for k in range(1, 51)]
 # repeticiones para cada valor de k
 # Simulación para k entre 1 y 50 personas
