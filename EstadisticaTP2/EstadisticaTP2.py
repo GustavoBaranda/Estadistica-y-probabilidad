@@ -37,21 +37,21 @@
     - Por último, utilizá todas estas funciones para crear una única función que las invoque y que se llame ``cuantos_paquetes(figus_total, figus_paquete)`` que cuente la cantidad de paquetes necesarios hasta completar el álbum. Necesitarás usar la estructura de control ``while()``, pues comprarás paquetes mientras el álbum siga incompleto; y deberás generar un contador de ``paquetes_comprados`` que arranque en 0 y sume un 1 cada vez que compres un nuevo paquete.
 """
 
-# Estas líneas de código importan las bibliotecas necesarias para la simulación y la visualización de datos. 
+# Importamos las bibliotecas necesarias para la simulación y la visualización de datos. 
 import random 
 import numpy
 import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Definición de variables
-# figus_total Esta variable representa el número total de figuritas en el álbum.
-# figus_paquete Esta variable representa la cantidad de figuritas que contiene el paquete.
+# figus_total representa el número total de figuritas en el álbum.
+# figus_paquete representa la cantidad de figuritas que contiene el paquete.
 figus_total = 860
 figus_paquete = 5
 
 
 # La función crear_album(figus_total) recibe como parámetro figus_total, que indica el número total de figuritas en el álbum. 
-# Esta función inicializa y devuelve un álbum vacío representado con una lista. 
+# Esta función inicializa y devuelve un álbum vacío en una lista. 
 # Cada posición en la lista corresponde a una figurita en el álbum, y un valor de 0 indica que esa figurita no se ha sido conseguida. 
 # Este álbum se utiliza como punto de partida para el proceso de llenado del álbum durante la simulación.
 def crear_album(figus_total):
@@ -61,7 +61,9 @@ def crear_album(figus_total):
     return album
  
 
-# La función devuelve un paquete de figuritas generado aleatoriamente en una lista. 
+# La función devuelve un paquete de figuritas generado aleatoriamente en una lista.
+# La finción recibe como parámetro figus_total, que indica el número total de figuritas en el álbum y 
+# figus_paquete que indica el número total de figuritas en el paquete  
 # Esta lista contendrá elementos únicos que representan las figuritas incluidas en el paquete. 
 # Garantizamos que los elementos sean únicos con el uso de random.sample(), que evita la repetición de figuritas en el paquete.
 def comprar_paquete(figus_total, figus_paquete):
@@ -119,7 +121,7 @@ muestras = [cuantos_paquetes(figus_total, figus_paquete) for _ in range(N)]
 promedio_muestral = numpy.mean(muestras)
 print(f"Promedio muestral de paquetes necesarios: {promedio_muestral}")
 
-
+print(sorted(muestras))
 # El código genera un histograma que muestra la distribución de la cantidad de paquetes necesarios para completar el álbum, 
 # basado en 100 repeticiones del experimento"
 plt.figure(figsize=(10, 6))
